@@ -5,7 +5,9 @@
   --main-duration: 0.5s;
   --padding-section: 70px;
   --color-section: #f6f6f6;
-  --font-size-heading: clamp(2rem, 10vw, 3rem);
+  --font-size-heading: 110px;
+  --margin-p-heading: -30px 0 0;
+  --font-size-heading-media: 60px;
 }
 /* Global rules */
 * {
@@ -43,31 +45,32 @@ body {
     width: 1170px;
   }
 }
-/* End Global Rules */
-/* Start Components */
 .special-heading {
   color: hsl(210, 5%, 93%);
-  font-size: 100px;
+  font-size: var(--font-size-heading);
   text-align: center;
   font-weight: 800;
   letter-spacing: -3px;
   margin: 0;
 }
 .special-heading + p {
-  margin-top: -20px;
-  font-size: 0.825rem;
+  color: rgb(121, 121, 121);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 24px;
   text-align: center;
-  color: #797979;
+  margin: var(--margin-p-heading);
 }
-@media (max-width: 767px) {
-  .special-heading {
-    font-size: 60px;
-  }
+@media (max-width: 600px) {
   .special-heading + p {
     margin-top: -20px;
+    font-size: calc(var(--font-size-heading-media) - 48px);
+  }
+  .special-heading {
+    font-size: var(--font-size-heading-media);
   }
 }
-/* End Components */
+/* End Global Rules */
 /* Start Header */
 .header {
   padding: 20px;
@@ -195,6 +198,7 @@ body {
   margin: 30px 0;
 }
 .features .container .feat p {
+  margin: var(--margin-p-heading);
   color: rgb(119, 119, 119);
   font-size: 17px;
   font-weight: 400;
@@ -204,18 +208,6 @@ body {
 /* Start serveices */
 .services .container {
   position: relative;
-}
-.services .container .special-heading {
-  color: rgb(235, 236, 237);
-  font-weight: 850;
-  font-size: var(--font-size-heading);
-  text-align: center;
-}
-.services .container > p {
-  color: rgb(121, 121, 121);
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 24px;
 }
 .services .container .services-content {
   display: grid;
@@ -278,27 +270,14 @@ body {
 /* End Servieces */
 /* Start Portfolio */
 .portfolio {
-  background-color: var(--color-section);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
 }
 .portfolio .container {
   position: relative;
 }
-.portfolio .container .heading {
-  color: rgb(235, 236, 237);
-  font-weight: 850;
-  font-size: var(--font-size-heading);
-  text-align: center;
-  margin: 0;
-  letter-spacing: -3;
-}
-.portfolio .container > p {
-  color: rgb(121, 121, 121);
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 24px;
-  text-align: center;
-  margin: -32px 0 0;
-}
+
 .portfolio .portfolio-content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -340,22 +319,6 @@ body {
 }
 .about .container {
   position: relative;
-}
-.about .container .heading {
-  color: rgb(235, 236, 237);
-  font-weight: 850;
-  font-size: var(--font-size-heading);
-  text-align: center;
-  letter-spacing: -3px;
-  margin: 0;
-}
-.about .container > p {
-  color: rgb(121, 121, 121);
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 24px;
-  text-align: center;
-  margin: -33px 0 0;
 }
 .about .about-content {
   margin-top: 100px;
@@ -425,22 +388,6 @@ body {
 .contact .container {
   position: relative;
 }
-.contact .container .heading {
-  color: rgb(235, 236, 237);
-  font-weight: 850;
-  font-size: var(--font-size-heading);
-  text-align: center;
-  letter-spacing: -3px;
-  margin: 0;
-}
-.contact .container > p {
-  color: rgb(121, 121, 121);
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 24px;
-  text-align: center;
-  margin: -33px 0 0;
-}
 .contact .info > p {
   color: rgb(44, 71, 85);
   font-weight: 800;
@@ -452,10 +399,15 @@ body {
   text-decoration: none;
   color: var(--main-color);
   font-weight: 800;
-  font-size: var(--font-size-heading);
+  font-size: 60px;
   text-align: center;
   display: block;
   line-height: 10px;
+}
+@media (max-width: 600px) {
+  .contact .info a {
+    font-size: 35px;
+  }
 }
 .contact .info .social {
   display: block;
